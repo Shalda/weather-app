@@ -1,11 +1,12 @@
-<form class="search_form">
+<form  class="search_form" >
   <mat-form-field class="example-full-width" appearance="fill">
-    <mat-label>Assignee</mat-label>
-    <input type="text" matInput [formControl]="myControl" [matAutocomplete]="auto">
+    <mat-label>City</mat-label>
+    <input type="text" matInput [formControl]="myControl" [matAutocomplete]="auto" (keyup.enter)="handleSubmit()" >
     <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
-      <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
-        {{option.name}}
+      <mat-option *ngFor="let option of filteredOptions | async" [value]="option" (click)="handleSubmit()">
+        {{option.LocalizedName}}
       </mat-option>
     </mat-autocomplete>
   </mat-form-field>
+
 </form>

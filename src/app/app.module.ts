@@ -12,11 +12,12 @@ import { HeaderComponent } from './header/header.component';
 import { ThemeSwitchComponent } from './theme-switch/theme-switch.component';
 import { MainComponent } from './main/main.component';
 import { SearchBarComponent } from './main/search-bar/search-bar.component';
-import {ReactiveFormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {MatAutocompleteModule} from "@angular/material/autocomplete";
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatOptionModule} from "@angular/material/core";
 import {MatInputModule} from "@angular/material/input";
+import {MatCardModule} from "@angular/material/card";
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,6 +28,8 @@ import {MatInputModule} from "@angular/material/input";
   ],
   imports: [
     BrowserModule,
+    ReactiveFormsModule,
+    FormsModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MatToolbarModule,
@@ -38,6 +41,7 @@ import {MatInputModule} from "@angular/material/input";
     MatFormFieldModule,
     MatOptionModule,
     MatInputModule,
+    MatCardModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
