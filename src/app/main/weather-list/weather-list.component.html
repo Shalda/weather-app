@@ -1,0 +1,39 @@
+<div class="_container">
+  <mat-card class="city-forecast" fxLayout="row" fxLayoutAlign="space-between center" *ngIf="!!forecast">
+    <div class="" fxLayout="row">
+      <div class="city-logo">
+        <img
+          [src]="'https://developer.accuweather.com/sites/default/files/' + ((forecast.Day.Icon < 10)? '0' + forecast.Day.Icon : forecast.Day.Icon)  + '-s.png'"
+          alt="">
+      </div>
+      <div class="city-forecast_info" fxLayout="column" fxLayoutAlign="space-around center">
+        <p>{{forecast.Title || ""}}</p>
+        <p>{{forecast.Temperature.Maximum.Value }}{{forecast.Temperature.Maximum.Unit}}</p>
+      </div>
+    </div>
+    <div class="forecast_main-text">
+      <h2 class="forecast_main-text_title">{{forecast.Text}}</h2>
+    </div>
+    <div class="fav_icon">
+      <mat-icon  aria-hidden="false" *ngIf="isFavorite; else notAFavorite" (click)="toFavorites(true)">favorite</mat-icon>
+      <ng-template #notAFavorite><mat-icon aria-hidden="false" (click)="toFavorites(true)">favorite_border</mat-icon></ng-template>
+    </div>
+  </mat-card>
+  <div class="weather-cards_container" fxLayout="row" fxLayoutAlign="space-between">
+    <mat-card class="example-card main_five-day_card" *ngFor="let day of forecastForFiveDay" fxLayout="column"
+              fxLayoutAlign="center center ">
+      <mat-card-header>
+        <mat-card-title>{{day.Date|date: 'EEEE'}}</mat-card-title>
+        <mat-card-subtitle>Day: {{day.Day.IconPhrase}}</mat-card-subtitle>
+        <mat-card-subtitle>Night: {{day.Night.IconPhrase}}</mat-card-subtitle>
+      </mat-card-header>
+      <img mat-card-image   [src]="'https://developer.accuweather.com/sites/default/files/' + ((day.Day.Icon < 10)? '0' + day.Day.Icon : day.Day.Icon)  + '-s.png'"
+           alt="weather logo">
+      <mat-card-content>
+        <p>{{day.Date|date}}</p>
+        <p>Temperature: max {{day.Temperature.Maximum.Value}}{{day.Temperature.Maximum.Unit}} |
+          min {{day.Temperature.Minimum.Value}}{{day.Temperature.Maximum.Unit}}</p>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>

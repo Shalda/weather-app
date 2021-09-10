@@ -1,22 +1,4 @@
-<app-search-bar></app-search-bar>
 <div class="main_container">
-  <div class="main_forecast-one" *ngFor="let item of forecast">
-    <p>Location: {{item.Title}}</p>
-    <p>Wind: {{item.Wind.Speed.Metric.Value}} {{item.Wind.Speed.Metric.Unit}}</p>
-    <p>Temperature: {{item.ApparentTemperature.Metric.Value}} {{item.ApparentTemperature.Metric.Unit}}</p>
-  </div>
-
-
-  <mat-card class="example-card main_five-day_card" *ngFor="let item of forecastForFiveDay">
-    <mat-card-header>
-      <div mat-card-avatar class="example-header-image"></div>
-      <mat-card-title>{{item.Date|date: 'EEEE'}}</mat-card-title>
-      <mat-card-subtitle>Dog Breed</mat-card-subtitle>
-    </mat-card-header>
-    <img mat-card-image src="https://www.clipartmax.com/png/full/237-2372176_weather-app-weather-app-logo.png" alt="weather logo" alt="Photo of a Shiba Inu">
-    <mat-card-content>
-      <p>Date: {{item.Date|date: 'EEEE'}}</p>
-      <p>Temperature: Max {{item.Temperature.Maximum.Value}} Min {{item.Temperature.Minimum.Value}}</p>
-    </mat-card-content>
-  </mat-card>
+<app-search-bar></app-search-bar>
+  <app-weather-list></app-weather-list>
 </div>

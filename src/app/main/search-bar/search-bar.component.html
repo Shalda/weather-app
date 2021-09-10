@@ -1,12 +1,12 @@
 <form  class="search_form" >
   <mat-form-field class="example-full-width" appearance="fill">
     <mat-label>City</mat-label>
-    <input type="text" matInput [formControl]="myControl" [matAutocomplete]="auto" (keyup.enter)="handleSubmit()" >
+    <input type="text" matInput [formControl]="searchForm" [matAutocomplete]="auto" (keyup.enter)="handleSubmit()" >
     <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
-      <mat-option *ngFor="let option of filteredOptions | async" [value]="option" (click)="handleSubmit()">
-        {{option.LocalizedName}}
+      <mat-option *ngFor="let city of filteredCities | async" [value]="city" (click)="handleSubmit()">
+        {{city.LocalizedName}}
       </mat-option>
     </mat-autocomplete>
   </mat-form-field>
-
+  <small *ngIf="searchForm.errors?.incorrectCityName"> Please enter only alphabetical, English letters.</small>
 </form>

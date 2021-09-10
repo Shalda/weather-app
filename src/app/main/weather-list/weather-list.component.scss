@@ -1,0 +1,41 @@
+.city-forecast {
+  justify-content: space-between;
+}
+
+.forecast_main-text {
+  h2 {
+    font-weight: normal;
+    font-size: 1.6rem;
+    align-self: center;
+    margin: 0;
+  }
+}
+
+.city-logo img {
+  max-width: 4rem;
+  height: auto;
+}
+
+.city-forecast_info p {
+  margin: 0;
+}
+
+.forecast_main-text, .forecast_info-block {
+  align-self: center;
+}
+
+.fav_icon {
+  cursor: pointer;
+}
+
+.weather-cards_container {
+  margin-top: 1rem;
+
+  .main_five-day_card {
+    img {
+      width: auto;
+      height: 2rem;
+    }
+  }
+}
+
